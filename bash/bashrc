@@ -1,0 +1,18 @@
+if [ -f /etc/profile ]; then
+	. /etc/profile
+fi
+alias ls='ls --color=auto'
+alias ll='ls -lh'
+alias la='ls -a'
+alias s='cd ..'
+alias vi="vim"
+alias spec="spec --color --format=specdoc"
+
+
+PS1='\[\033[1;34m\][\[\033[1;31m\]\u\[\033[0;36m\]@\[\033[1;31m\]\h \W\[\033[1;31m\]\[\033[1;34m\]]\[\033[1;37m\]\$\[\033[0;00m\] '
+
+
+export PATH=$HOME/apps/bin:~/.gem/ruby/1.8/bin:$PATH
+export EDITOR="vim"
+export RAILS_TEMPLATES="$HOME/development/rails_templates"
+if [[ -s /home/leonardo/.rvm/scripts/rvm ]] ; then source /home/leonardo/.rvm/scripts/rvm ; fi
