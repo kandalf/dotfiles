@@ -1,0 +1,89 @@
+set autoindent
+set autowrite
+set number
+set tabstop=2
+syntax on
+"added by leo for vimrails settings
+let mapleader = ","
+set smarttab
+set shiftwidth=2
+set expandtab
+set showmatch
+set directory=~/.vim/tmp
+
+set t_Co=256
+colorscheme xoria256
+
+"code folding depending on the syntax for the mime-type. Most of the
+"programming languages are supported and it's cleaner that marker, since no
+"commented marker is inserted on the code.
+set foldmethod=syntax
+
+"disable mouse, just because I don't like it on vim
+set mouse=""
+"paste makes invalid the input mode keymaps, so deactivate it.
+set nopaste
+
+autocmd FileType make			set noexpandtab
+autocmd FileType python		set noexpandtab
+
+"Ruby On Rails  maps
+map <F8> :NERDTreeToggle<CR>
+map <F9> <ESC><C-w><left>:wq<CR><F8> 
+map <leader>rs :!rake spec<CR>
+map <leader>sp :!spec --format specdoc --color %<CR> 
+imap <leader>re <%=  %><ESC>hhi
+imap <leader>r <%  %><ESC>hhi
+
+"Convenient shortcuts for editing
+map <C-e> dd
+map <C-d> dd
+imap <C-e> <ESC>ddi
+imap <C-d> <ESC>ddi
+map <C-e> <ESC>dd
+imap <C-z> <ESC>ui
+imap <C-s> <ESC>wi
+imap <F2> <ESC>:nohl<CR>i
+map <F2> <ESC>:nohl<CR>
+
+"code folding options
+"<F5> open folded <F6> close folding <F7> create folding
+map <F5> zo
+map <F6> zc
+map <F7> zfap
+map <C-<F5>> zr
+
+"tabs keymaps
+map <M-Left> :tabprev<CR>
+map <M-Right> :tabnext<CR>
+map <C-t>n :tabnew<CR><F8>
+map <C-t>c :tabclose<CR>
+map <C-t><Left> :tabprevious<CR>
+map <C-t><Right> :tabnext<CR>
+
+"FuzzyTextFinder
+let g:fuzzy_ignore = "*.log"
+let g:fuzzy_matching_limit = 70
+map <leader>ffb :FuzzyFinderBuffer<CR>
+map <leader>fft :FuzzyFinderTag<CR>
+
+"buffers map
+map <leader>bfs :buffers<CR>
+map <leader>b :buffer 
+
+"Buffer Explorer
+imap <F12> <C-w>n:BufExplorer<CR> 
+map <F12> <C-w>n:BufExplorer<CR> 
+
+
+map <F3> <ESC>:call ToggleNumber()<CR>
+function! ToggleNumber()
+  if exists(g:numberActive)
+    set nonumber
+    unlet g:numberActive
+  else
+    set number
+    let g:numberActive = 1
+  endif
+endfunction
+"end vimrails settings
