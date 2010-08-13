@@ -1,0 +1,35 @@
+[user]
+    name = Leonardo Mateo
+    email = leonardomateo <at> gmail <dot> com
+
+[alias]
+    ci = commit -a
+    co = checkout
+    st = status
+    praise = blame 
+
+[apply]
+    whitespace = strip
+
+[diff]
+    color = auto
+    rename = copy 
+
+[pager]
+    color = true 
+
+[color]
+    status = auto
+    branch = auto
+    pager = true
+
+[color "branch"]
+    current = green reverse
+    local = green
+    remote = yellow
+
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+
