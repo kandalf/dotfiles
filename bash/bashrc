@@ -8,8 +8,13 @@ alias s='cd ..'
 alias vi="vim"
 alias spec="spec --color --format=specdoc"
 
+blue='\[\033[1;34m\]'
+red='\[\033[1;31m\]'
+cyan='\[\033[0;36m\]'
+white='\[\033[1;37m\]'
+gray='\[\033[0;00m\]'
 
-PS1='\[\033[1;34m\][\[\033[1;31m\]\u\[\033[0;36m\]@\[\033[1;31m\]\h \W\[\033[1;31m\]\[\033[1;34m\]]\[\033[1;37m\]\$\[\033[0;00m\] '
+PS1="$blue[$red\u$cyan@$red\h \W$blue]$white\$$gray "
 
 
 export PATH=$HOME/apps/bin:~/.gem/ruby/1.8/bin:$PATH
