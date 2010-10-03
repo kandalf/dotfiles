@@ -76,6 +76,7 @@ map <leader>b :buffer
 imap <F12> <C-w>n:BufExplorer<CR> 
 map <F12> <C-w>n:BufExplorer<CR> 
 
+map <F11> <ESC>:%s/\r$//g<RETURN>
 
 map <F3> <ESC>:call ToggleNumber()<CR>
 function! ToggleNumber()
