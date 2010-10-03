@@ -10,6 +10,7 @@ set shiftwidth=2
 set expandtab
 set showmatch
 set directory=~/.vim/tmp
+set wildmenu
 
 set t_Co=256
 colorscheme xoria256
