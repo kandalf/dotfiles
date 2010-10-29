@@ -1,6 +1,6 @@
 [user]
-    name = Leonardo Mateo
-    email = leonardomateo <at> gmail <dot> com
+    name = <name>
+    email = <email>
 
 [alias]
     ci = commit -a
