@@ -1,4 +1,10 @@
 set autoindent
+set copyindent
+set shiftround
+set smartcase
+set incsearch
+set pastetoggle=<F2>
+
 set autowrite
 set number
 set tabstop=2
@@ -10,6 +16,7 @@ set shiftwidth=2
 set expandtab
 set showmatch
 set directory=~/.vim/tmp
+set wildmenu
 
 set t_Co=256
 colorscheme xoria256
@@ -24,17 +31,51 @@ set mouse=""
 "paste makes invalid the input mode keymaps, so deactivate it.
 set nopaste
 
-autocmd FileType make			set noexpandtab
-autocmd FileType python		set noexpandtab
+
+filetype plugin indent on
+
+
+if has('autocmd')
+  autocmd FileType make			set noexpandtab
+  autocmd FileType python		set noexpandtab
+  autocmd FileType php      set noexpandtab
+  autocmd FileType xsl      set noexpandtab
+
+  autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
+
+  autocmd BufReadPost *.asciidoc set syntax=asciidoc
+  autocmd BufWritePost .vimrc source $MYVIMRC
+endif
+
+map <C-F5> :e%<RETURN>
 
 "Ruby On Rails  maps
 map <F8> :NERDTreeToggle<CR>
 map <F9> <ESC><C-w><left>:wq<CR><F8> 
 map <leader>rs :!rake spec<CR>
 map <leader>sp :!spec --format specdoc --color %<CR> 
+map <leader>f <ESC>:Rfind 
 imap <leader>re <%=  %><ESC>hhi
 imap <leader>r <%  %><ESC>hhi
+imap <leader>f <ESC>:Rfind 
+abbreviate itsh it "should " do<RETURN><RETURN>end<ESC>2k2ea
 
+"Convenient XSL shortcuts
+imap <leader>xsw <xsl:when test=""><RETURN></xsl:when><ESC>k$hi
+imap <leader>xsi <xsl:if test=""></xsl:if><ESC>k$hi
+imap <leader>xsv <xsl:value-of select="" /><ESC>3hi
+imap <leader>xsf <xsl:for-each select=""><RETURN></xsl:for-each><ESC>k$hi
+imap <leader>xsb <xsl:variable name="" select="" /><ESC>3hi
+imap <leader>xsi <xsl:if test=""><RETURN></xsl:if><ESC>k$hi
+imap <leader>xsc <xsl:choose><RETURN><TAB><xsl:when test=""></xsl:when><RETURN><BACKSPACE></xsl:choose><ESC>k8li
+imap <leader>xsa <xsl:attribute name="" select="" /><ESC>13hi
+
+"Convenient PHP shortcuts
+map <leader>php i<?php<RETURN><RETURN>?><ESC>khi
+imap <leader>phplog $fHnd = fopen("/tmp/.log", "w");<RETURN>fwrite($fHnd, print_r(,true);<RETURN>fclose($fHnd);<ESC>h2k8l
 "Convenient shortcuts for editing
 map <C-e> dd
 map <C-d> dd
@@ -42,9 +83,7 @@ imap <C-e> <ESC>ddi
 imap <C-d> <ESC>ddi
 map <C-e> <ESC>dd
 imap <C-z> <ESC>ui
-imap <C-s> <ESC>wi
-imap <F2> <ESC>:nohl<CR>i
-map <F2> <ESC>:nohl<CR>
+imap <C-s> <ESC>:wi
 
 "code folding options
 "<F5> open folded <F6> close folding <F7> create folding
@@ -75,16 +114,7 @@ map <leader>b :buffer
 imap <F12> <C-w>n:BufExplorer<CR> 
 map <F12> <C-w>n:BufExplorer<CR> 
 
+"remove the annoying ^M EOL chars
 map <F11> <ESC>:%s/\r$//g<RETURN>
 
-map <F3> <ESC>:call ToggleNumber()<CR>
-function! ToggleNumber()
-  if exists(g:numberActive)
-    set nonumber
-    unlet g:numberActive
-  else
-    set number
-    let g:numberActive = 1
-  endif
-endfunction
 "end vimrails settings
