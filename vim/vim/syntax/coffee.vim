@@ -205,7 +205,7 @@ syn match coffeeDot /\.\@<!\.\i\+/
 
 " Allows interpolations with nested curlies
 syn region coffeeCurlies start=/{/ end=/}/ contained
-\                                          contains=@coffeeAll,coffeeCurlies
+\                                          contains=@coffeeAll,coffeeCurlies 
 
 " This is used instead of TOP to keep things coffee-specific for good
 " embedding. Errors and `contained` groups aren't included.

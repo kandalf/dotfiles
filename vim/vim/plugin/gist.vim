@@ -204,7 +204,7 @@ function! s:encodeURIComponent(instr)
   return outstr
 endfunction
 
-" Note: A colon in the file name has side effects on Windows due to NTFS Alternate Data Streams; avoid it.
+" Note: A colon in the file name has side effects on Windows due to NTFS Alternate Data Streams; avoid it. 
 let s:bufprefix = 'gist' . (has('unix') ? ':' : '_')
 function! s:GistList(user, token, gistls, page)
   if a:gistls == '-all'
@@ -492,7 +492,7 @@ endfunction
 function! s:GistDelete(user, token, gistid)
   echon 'Deleting gist... '
   let res = s:GistGetPage('https://gist.github.com/'.a:gistid, a:user, '', '')
-  if (!len(res))
+  if (!len(res)) 
       echoerr 'Wrong password? no response received from github trying to delete ' . a:gistid
       return
   endif
