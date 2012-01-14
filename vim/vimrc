@@ -47,6 +47,7 @@ if has('autocmd')
       \ endif
 
   autocmd BufReadPost *.asciidoc set syntax=asciidoc
+  autocmd BufReadPost *.asciidoc setfiletype asciidoc
   autocmd BufWritePost .vimrc source $MYVIMRC
 endif
 
@@ -82,7 +83,6 @@ map <leader>sp :!spec --format specdoc --color %<CR>
 map <leader>f <ESC>:Rfind 
 imap <leader>re <%=  %><ESC>hhi
 imap <leader>r <%  %><ESC>hhi
-imap <leader>f <ESC>:Rfind 
 abbreviate itsh it "should " do<RETURN><RETURN>end<ESC>2k2ea
 
 "Convenient XSL shortcuts
@@ -125,8 +125,8 @@ map <C-t><Right> :tabnext<CR>
 "FuzzyTextFinder
 let g:fuzzy_ignore = "*.log"
 let g:fuzzy_matching_limit = 70
-map <leader>ffb :FuzzyFinderBuffer<CR>
-map <leader>fft :FuzzyFinderTag<CR>
+map <leader>ffb :FufBuffer<CR>
+map <leader>fft :FufTag<CR>
 
 "buffers map
 map <leader>bfs :buffers<CR>
@@ -140,3 +140,8 @@ map <F12> <C-w>n:BufExplorer<CR>
 map <F11> <ESC>:%s/\r$//g<RETURN>
 
 "end vimrails settings
+"
+let g:github_user = 'kandalf'
+let g:github_token = 'here goes your token, not your password. You can find it under the admin secion in your GH account'
+
+call pathogen#infect()
