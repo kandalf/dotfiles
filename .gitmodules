@@ -1,0 +1,33 @@
+[submodule "vim/vim/bundle/ctrlp.vim"]
+	path = vim/vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/vim/bundle/nerdcommenter"]
+	path = vim/vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/vim/bundle/nerdtree"]
+	path = vim/vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/vim/bundle/snipmate"]
+	path = vim/vim/bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
+[submodule "vim/vim/bundle/supertab"]
+	path = vim/vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vim/vim/bundle/tabular"]
+	path = vim/vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/vim/bundle/vim-bufexplorer"]
+	path = vim/vim/bundle/vim-bufexplorer
+	url = https://github.com/slack/vim-bufexplorer.git
+[submodule "vim/vim/bundle/vim-fugitive"]
+	path = vim/vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/vim/bundle/vim-fuzzyfinder"]
+	path = vim/vim/bundle/vim-fuzzyfinder
+	url = https://github.com/slack/vim-fuzzyfinder.git
+[submodule "vim/vim/bundle/vim-rails"]
+	path = vim/vim/bundle/vim-rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "vim/vim/bundle/vim-unimpaired"]
+	path = vim/vim/bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
